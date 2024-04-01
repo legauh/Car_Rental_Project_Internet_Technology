@@ -4,7 +4,7 @@ The fundamental concept of this group project is to create a functional Web appl
 #### Contents:
 - [Analysis](#analysis)
   - [Scenario Ideation](#scenario-ideation)
-  - [User Stories](#user-stories)
+  - [User Story Writing](#user-story-writing)
   - [Use Case](#use-case)
 - [Design](#design)
   - [Prototype Design](#prototype-design)
@@ -22,7 +22,7 @@ In our analysis, we specify the following sections to ensure a comprehensive und
 
 ### Scenario Ideation
 
-Car_Rental (Car_Rental_Project_Internet_Technology) is a tool allowing the car rental manager (Role: Admin) and the customers (Role: User) to manage car rental operations.
+CarRentalPortal (Car_Rental_Project_Internet_Technology) is a tool allowing the car rental manager (Role: Admin) and the customers (Role: User) to manage car rental operations.
 
 
 
@@ -40,7 +40,7 @@ Steps:
 
 #### Scenario 2: Admin Management
 ------------------------------------------------------------
-Description: The admin wants to maintain the DB, such as car inventory (add or delete), car location changes, and car availability. 
+Description: The admin wants to maintain the DB, such as such as user management, car inventory (add or delete), car location changes, and car availability. 
 
 Steps: 
 1. Admin navigates to the login page.
@@ -88,11 +88,15 @@ Steps:
 6. System generates a rental confirmation and updates the car's availability status. 
 
 
-### User Stories
+### User Story Writing
 
-1. As a new user, I want to register an account to access the car rental services.
-2. As a registered user, I want to search for available cars based on my preferred location and dates.
-3. As a registered user, I want to rent a car by selecting from the available options and specifying rental details. 
+1. As an admin, I want the system to validate my credentials during login to ensure security.
+2. As an admin, I want to be notified with error messages if I provide invalid credentials during login.
+3. As an admin, I want to log in to the system to perform create, update, and delete operations.
+4. As an admin, I want to create new data, update existing data, and delete unwanted data on the platform.
+5. As a new user, I want to register an account to access the car rental services.
+6. As a registered user, I want to search for available cars based on my preferred location and dates.
+7. As a registered user, I want to rent a car by selecting from the available options and specifying rental details.
 
 
 ### Use Case
@@ -118,13 +122,13 @@ Invalid input: If the admin provides invalid credentials, system displays error 
 
 #### Use Case 2: Admin Management
 ------------------------------------------------------------
-Actors: Admin, System 
+Actors:          Admin, System 
 
-Description: Allows the admin to manage the platform. 
+Description:     Allows the admin to manage the platform. 
 
-Precondition: Admin navigates to the login page. 
+Precondition:    Admin navigates to the login page. 
 
-Postcondition: Desired CUD operations are executed successfully.  
+Postcondition:   Desired CRUD operations are executed successfully.  
 
 Main Flow:
 1. Admin logs in.
@@ -136,36 +140,76 @@ Alternate Flows:
 Invalid input: If the admin provides invalid information, system displays error messages. 
 
 
-#### Use Case 3: User Registration
+#### Use Case 3: User Management (Edit User Information)
 ------------------------------------------------------------
-Actors: User, System 
+Actors:         Admin, System
 
-Description: Allows a user to create a new account on the car rental website. 
+Description:    Allows an admin to edit the information of multiple users.
 
-Precondition: User navigates to the registration page. 
+Precondition:   Admin is logged in and has access to user management functionalities.
 
-Postcondition: User account is created successfully. 
+Postcondition:  User information is successfully updated.
+
+Main Flow:
+1. Admin navigates to the user management section.
+2. Admin selects a user to edit.
+3. Admin modifies the user's information (e.g., name, email, address).
+4. Admin saves the changes.
+ 
+Alternate Flows: 
+Invalid input: If the admin provides invalid information, system displays error messages.
+
+
+#### Use Case 4: Car Mangement (Edit Car Information)
+------------------------------------------------------------
+Actors:         Admin, System
+
+Description:    Allows an admin to edit the information of multiple cars.
+
+Precondition:   Admin is logged in and has access to car management functionalities.
+
+Postcondition:  Car information is successfully updated.
+
+Main Flow:
+1. Admin navigates to the car management section.
+2. Admin selects a car to edit.
+3. Admin modifies the car's information (e.g., make, model, rental rate).
+4. Admin saves the changes.
+
+Alternate Flows: 
+Invalid input: If the admin provides invalid information, system displays error messages.
+
+
+#### Use Case 5: User Registration
+------------------------------------------------------------
+Actors:         User, System
+
+Description:    Allows a user to create a new account on the car rental website.
+
+Precondition:   User navigates to the registration page.
+
+Postcondition:  User account is created successfully.
 
 Main Flow:
 1. User provides personal information.
 2. System validates the information.
-3. System creates a new user account. 
+3. System creates a new user account.
 
 Alternate Flows: 
-Invalid input: If the user provides invalid information, system displays error messages. 
+Invalid input: If the user provides invalid information, system displays error messages.
 
 
-#### Use Case 4: Search for Available Cars
+#### Use Case 6: Search for Available Cars
 ------------------------------------------------------------
-Actors: User, System 
+Actors:         User, System
 
-Description: Allows a user to search for available cars based on specified criteria. 
+Description:    Allows a user to search for available cars based on specified criteria.
 
-Precondition: User is logged in and navigates to the search page. 
+Precondition:   User is logged in and navigates to the search page.
 
-Postcondition: User views a list of available cars matching the search criteria. 
+Postcondition:  User views a list of available cars matching the search criteria.
 
-Main Flow: 
+Main Flow:
 1. User specifies search criteria.
 2. System retrieves and displays available cars.
 
@@ -173,25 +217,83 @@ Alternate Flows:
 No cars available: If no cars match the search criteria, system displays a message.
 
 
-#### Use Case 5: Rent a Car
+#### Use Case 7: Rent a Car
 ------------------------------------------------------------
-Actors: User, System 
+Actors:         User, System
 
-Description: Allows a user to rent a car from the available options. 
+Description:    Allows a user to rent a car from the available options.
 
-Precondition: User has selected a car for rental. 
+Precondition:   User has selected a car for rental.
 
-Postcondition: User completes the rental process and receives confirmation. 
+Postcondition:  User completes the rental process and receives confirmation.
 
 Main Flow:
-1. User selects a car and specifies rental details.
-2. System checks availability and calculates total cost.
-3. User makes the payment.
-4. System generates a rental confirmation. 
+1. User selects a car for rental.
+2. User specifies rental details (e.g., rental dates, additional options).
+3. User confirms the rental.
+4. System processes the rental request.
+5. System generates a rental confirmation.
+6. User receives a confirmation of the rental.
 
 Alternate Flows: 
-Payment failure: If the payment fails, system prompts the user to try again. 
+None
 
+
+#### Use Case 8: View Payment Details
+------------------------------------------------------------
+Actors:         User, System
+
+Description:    Allows a user to view the payment details associated with a rental.
+
+Precondition:   User is logged in and navigates to the rental details page.
+
+Postcondition:  User views the payment details of the rental.
+
+Main Flow:
+1. User selects a rental to view details.
+2. User navigates to the payment details section.
+3. System retrieves and displays the payment details associated with the rental.
+
+Alternate Flows: 
+No payment details: If there are no payment details associated with the rental, system displays a message.
+
+
+#### Use Case 9: View Rental Location Details
+------------------------------------------------------------
+Actors:         User, System
+
+Description:    Allows a user to view the details of the location where a rental takes place.
+
+Precondition:   User is logged in and navigates to the rental details page.
+
+Postcondition:  User views the location details of the rental.
+
+Main Flow:
+1. User selects a rental to view details.
+2. User navigates to the location details section.
+3. System retrieves and displays the location details where the rental takes place.
+
+Alternate Flows: 
+Location details unavailable: If there are no location details associated with the rental, system displays a message.
+
+
+#### Use Case 10: View Available Cars at Location
+------------------------------------------------------------
+Actors:         User, System
+
+Description:    Allows a user to view the available cars at a specific rental location.
+
+Precondition:   User is logged in and navigates to the location details page.
+
+Postcondition:  User views the available cars at the location.
+
+Main Flow:
+1. User selects a location to view details.
+2. User navigates to the available cars section.
+3. System retrieves and displays the list of available cars at the location.
+
+Alternate Flows: 
+No available cars: If there are no cars available at the location, system displays a message.
 
 ### Design
 > ***
@@ -209,10 +311,15 @@ We created an Entity-Relationship Model in Visual Paradigm.
 #### Entities
 
 Admin: Represents the administrators of the website.
+
 User: Represents individuals who interact with the website.
+
 Car: Represents the vehicles available for rental.
+
 Rental Represents a rental transaction.
+
 Payment: Represents a payment transaction associated with a rental.
+
 Location: Represents the rental locations where cars are available.
 
 #### Relationships
@@ -226,7 +333,7 @@ One-to-Many relationship indicates that an admin can edit multiple cars.
 ##### User – Rental (MakeRental)
 One-to-Many relationship indicating that a user can make multiple rentals, but each rental is associated with only one user.
 
-##### User – Payment(MakePayment)
+##### User – Payment (MakePayment)
 One-to-Many relationship indicates that a user can make multiple payments, but each payment is made by only one user.
 
 ##### Car – Rental (IsRentedFor)
@@ -243,7 +350,7 @@ One-to-Many relationship indicating that a location can have multiple cars avail
 
 #### Model
 
-![](images/Entity-Relationship-Car-Rental.png)
+![](images/EntityRelationshipCarRental2.0.png)
 
 ### Business Logic 
 > ***
