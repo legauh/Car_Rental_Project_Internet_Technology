@@ -375,9 +375,9 @@ One-to-Many relationship indicating that a location can have multiple cars avail
 - developer: Lea Gauch
 
 ### Milestones
-1. **Analysis**: Scenario ideation, use case analysis and user story writing.
+1. **Analysis**: Scenario ideation, use case analysis and user story writing. (Submission 2024-04-01)
 2. **Prototype Design**: Creation of wireframe and prototype.
-3. **Domain Design**: Definition of domain model.
+3. **Domain Design**: Definition of domain model. (Submission 2024-04-01)
 4. **Business Logic and API Design**: Definition of business logic and API.
 5. **Data and API Implementation**: Implementation of data access and business logic layers, and API.
 6. **Security and Frontend Implementation**: Integration of security framework and frontend realisation.
