@@ -203,11 +203,47 @@ Payment failure: If the payment fails, system prompts the user to try again.
 > ***
 
 ### Domain Design
-> 🚧: Provide a picture and describe your domain model; you may use Entity-Relationship Model or UML class diagram. Both can be created in Visual Paradigm - we have an academic license for it.
 
-The `ch.fhnw.pizza.data.domain` package contains the following domain objects / entities including getters and setters:
+We created an Entity-Relationship Model in Visual Paradigm.
 
-![](images/domain-model.png)
+#### Entities
+
+Admin: Represents the administrators of the website.
+User: Represents individuals who interact with the website.
+Car: Represents the vehicles available for rental.
+Rental Represents a rental transaction.
+Payment: Represents a payment transaction associated with a rental.
+Location: Represents the rental locations where cars are available.
+
+#### Relationships
+
+##### Admin – User (UserManagement)
+One-to-Many relationship indicates that an admin can edit multiple users.
+
+##### Admin – Car (CarManagement)
+One-to-Many relationship indicates that an admin can edit multiple cars.
+
+##### User – Rental (MakeRental)
+One-to-Many relationship indicating that a user can make multiple rentals, but each rental is associated with only one user.
+
+##### User – Payment(MakePayment)
+One-to-Many relationship indicates that a user can make multiple payments, but each payment is made by only one user.
+
+##### Car – Rental (IsRentedFor)
+One-to-Many relationship indicating that a car can be rented multiple times, but each rental is associated with only one car.
+
+##### Rental – Payment (IsAssociatedWith)
+One-to-One relationship indicating that each rental has exactly one payment associated with it.
+
+##### Rental – Location (TakesPlaceAt)
+Many-to-One relationship: Many rentals can take place ate the same rental location, but each rental only takes place at  only one location.
+
+##### Location – Car (IsLocatedAt)
+One-to-Many relationship indicating that a location can have multiple cars available for rental, but each car is located at only one location.
+
+#### Model
+
+![](images/Entity-Relationship-Car-Rental.png)
 
 ### Business Logic 
 > ***
